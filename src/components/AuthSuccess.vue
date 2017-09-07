@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <!--<div>
         <md-button @click="logOut">logout</md-button>
     </div>
     <div>
@@ -8,9 +8,59 @@
         <p>{{name}}</p>
         <p>{{email}}</p>
         <p>{{userId}}</p>
-        <pre>{{user}}</pre>
+        <div>{{user}}</p>
       </div>
+  </div>-->
+  <div class="newpost-cont-wrap">
+          <md-card md-with-hover>
+                <md-card-header>
+                <div class="md-title">New Post</div>
+                <div class="md-subhead">All Anonymous</div>
+                </md-card-header>
+                <md-card-expand>
+                  <md-card-actions>
+                    <span style="flex: 1"></span>
+                    <md-button class="md-icon-button" md-expand-trigger>
+                      <md-icon>keyboard_arrow_down</md-icon>
+                    </md-button>
+                  </md-card-actions>
+
+                  <md-card-content>
+                      <div v-if="this.$route.path!='/auth/success'">
+                        <router-link  tag="md-button"
+                                      to="/signin" c
+                                      lass="md-raised md-primary">
+                            Router Link
+                        </router-link>
+                      </div>
+                      <div v-if="!poststatus && this.$route.path!='/sigin'">
+                        <md-input-container md-clearable>
+                            <label>Title goes here</label>
+                            <md-input v-model="newpost.title"></md-input>
+                        </md-input-container>
+                        <md-input-container md-clearable>
+                            <label>Description goes here</label>
+                            <md-textarea v-model="newpost.description" ></md-textarea>
+                        </md-input-container>
+                        <md-input-container>
+                          <label>Image</label>
+                          <md-file  accept="image/*" v-model="newpost.image"></md-file>
+                        </md-input-container>
+                        <md-card-actions>
+                          <span style="flex: 1"></span>
+                          <md-button class="md-primary md-raised" @click="post">
+                            Post
+                          </md-button>
+                        </md-card-actions>
+                      </div>
+                      <div v-if="poststatus" align="center">
+                          <md-spinner :md-size="150" md-indeterminate class="md-warn"></md-spinner>
+                      </div>
+                  </md-card-content>
+                </md-card-expand>
+          </md-card>
   </div>
+</div>
 </template>
 
 <script>
@@ -20,41 +70,45 @@ import firebase from 'firebase'
 export default {
   data() {
     return {
-      photo: '',
-      userId: '',
-      name: '',
-      email: '',
-      user: {},
-      roomDetails: [],
-      test_room: {},
-      test_id: ''
-    }
-  },
-  created() {
-    var vm = this
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        vm.user = user;
-        vm.name = vm.user.displayName;
-        vm.email = vm.user.email;
-        vm.photo = vm.user.photoURL;
-        vm.userId = vm.user.uid;
+      poststatus:false,
+      newpost:{
+        title:'',description:'',image:''
       }
-    });
-
-    axios.get('http://localhost:3000/rooms')
-      .then((response) => {
-        this.roomDetails = response.data;
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    }
   },
   methods: {
     logOut() {
       firebase.auth().signOut();
     },
+    post(){
+        console.log('working');
+        this.poststatus=true;
+        axios({
+            method: 'post',
+            url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
+            data:this.newpost
+        }).then(function(response){
+              console.log(response);
+              //if(response.status==200){
+                this.poststatus=false
+              //}
+        });
+    }
   },
 };
 </script>
+<style>
+  .newpost-cont-wrap{
+    width:55%;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    margin:0 auto;
+    margin-top:20px;
+  }
+  @media only screen and (max-width:5.5in){
+    .newpost-cont-wrap{
+      width:98%;
+
+    }
+  }
+</style>

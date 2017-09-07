@@ -1,8 +1,8 @@
 export const config = {
-  apiKey: "AIzaSyAt_piQHTaz_eyDDjcYfnUM9RUYWy5dFpI",
-  authDomain: "fir-auth-dabd5.firebaseapp.com",
-  databaseURL: "https://fir-auth-dabd5.firebaseio.com",
-  projectId: "fir-auth-dabd5",
-  storageBucket: "fir-auth-dabd5.appspot.com",
-  messagingSenderId: "1003786982889"
+  apiKey: "AIzaSyCZaO33E7Ky96MMwGXvuoqfnak2St5hqJY",
+  authDomain: "avouer-c74ef.firebaseapp.com",
+  databaseURL: "https://avouer-c74ef.firebaseio.com",
+  projectId: "avouer-c74ef",
+  storageBucket: "",
+  messagingSenderId: "191882797715"
 };

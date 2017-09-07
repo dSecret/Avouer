@@ -1,8 +1,27 @@
-<template lang="html">
+<template>
 <div class="container">
-  <h1> Auth </h1>
-  <div id="auth-container"></div>
+        <md-toolbar class="md-medium" >
+          <div class="md-toolbar-container">
+            <h2 class="md-title" style="flex: 1;">Avouer</h2>
+            <md-button class="md-icon-button" >
+              <md-icon>search</md-icon>
+            </md-button>
+            <router-link  tag="md-button"
+                          to="/signin" c
+                          lass="md-raised md-primary">
+                Router Link
+            </router-link>
+            <md-button 
+                      class="md-accent"
+                       @click="logOut">
+                LogOut
+            </md-button>
+          </div>
+        </md-toolbar>
+  <div>
+      <router-view></router-view>
   </div>
+</div>
 </template>
 
 <script>
@@ -11,22 +30,22 @@ import firebaseui from 'firebaseui'
 import {config} from '../helpers/firebaseConfig';
 export default {
   name: 'auth',
-  mounted() {
-    var uiConfig = {
-      signInSuccessUrl: '/success',
-      signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID
-        ]
-      };
-    var ui = new firebaseui.auth.AuthUI(firebase.auth());
-    ui.start('#auth-container', uiConfig);
-    },
+  methods: {
+      logOut() {
+        firebase.auth().signOut();
+      },
+  }
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .container{
-  margin:0;
-  padding:0;
+  margin:0 !important;
+  padding:0 !important;
+  width:100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  overflow-x: hidden;
 }
+
 </style>
