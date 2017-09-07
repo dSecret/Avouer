@@ -99,16 +99,11 @@ export default {
 </script>
 <style>
   .newpost-cont-wrap{
-    width:55%;
+    width:100%;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     margin:0 auto;
     margin-top:20px;
   }
-  @media only screen and (max-width:5.5in){
-    .newpost-cont-wrap{
-      width:98%;
 
-    }
-  }
 </style>

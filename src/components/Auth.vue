@@ -13,9 +13,10 @@
             </md-button>
           </div>
         </md-toolbar>
-  <div>
-      <router-view></router-view>
-  </div>
+        <div class="cont-wrap">
+            <router-view></router-view>
+            <showposts></showposts>
+        </div>
 </div>
 </template>
 
@@ -23,8 +24,12 @@
 import firebase from 'firebase';
 import firebaseui from 'firebaseui'
 import {config} from '../helpers/firebaseConfig';
+import showposts from './showposts.vue'
 export default {
   name: 'auth',
+  components:{
+    'showposts':showposts
+  },
   methods: {
       logOut() {
         firebase.auth().signOut();
@@ -42,5 +47,17 @@ export default {
   -moz-box-sizing: border-box;
   overflow-x: hidden;
 }
+.cont-wrap{
+  width:55%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin:0 auto;
+  margin-top:20px;
+}
+@media only screen and (max-width:5.5in){
+  .newpost-cont-wrap{
+    width:98%;
 
+  }
+}
 </style>
