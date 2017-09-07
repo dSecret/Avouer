@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-        <button @click="logOut">logout</button>
+        <md-button @click="logOut">logout</md-button>
     </div>
     <div>
         <img :src="photo" style='height: 120px'/> <br>
