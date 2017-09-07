@@ -17,7 +17,7 @@ new Vue({
       if(user) {
         this.$router.push('/auth/success')
       } else {
-        this.$router.push('/auth')
+        this.$router.push('/auth/signin')
       }
      });
     },

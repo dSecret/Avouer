@@ -6,12 +6,7 @@
             <md-button class="md-icon-button" >
               <md-icon>search</md-icon>
             </md-button>
-            <router-link  tag="md-button"
-                          to="/signin" c
-                          lass="md-raised md-primary">
-                Router Link
-            </router-link>
-            <md-button 
+            <md-button v-if="this.$route.path!='/auth/signin'"
                       class="md-accent"
                        @click="logOut">
                 LogOut

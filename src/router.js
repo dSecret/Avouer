@@ -9,10 +9,11 @@ const router = new VueRouter({
     { path: '/', component: Auth },
     { path: '/auth', component: Auth ,
       children:[
-        {path:'success',component:AuthSuccess}
+        {path:'success',component:AuthSuccess},
+        {path:'signin',component:homepage}
       ]
     },
-    {path:'/signin',component:homepage}
+
   ]
 });
 
