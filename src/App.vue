@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+  <home></home>
+    <!-- <router-view></router-view> -->
   </div>
 </template>
 <style src="vue-material/dist/vue-material.css"></style>
 <script>
+import home from './components/home.vue'
+
 export default {
   name: 'app',
+  components: {
+  	home: home
+  }
 }
 </script>
 <style>

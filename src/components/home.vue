@@ -18,10 +18,7 @@
 import firebase from 'firebase';
 
 export default {
-  name: 'auth',
-  methods: {
-
-  }
+  name: 'home'
 }
 </script>
 

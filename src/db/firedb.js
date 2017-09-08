@@ -1,18 +1,41 @@
-export default (firedb) => {
-	newPost (post) {
-		firedb().ref('posts/').set({
-			'title': post.title,
-			'link': post.link,
-			'content': post.content,
-			'created': post.created
-		}).then(resp => {
-			console.log(resp)
-		})
-	}
-	getPost (post_id) {
-		return firedb().ref('posts/' + post_id)
-			.then(snapshot => {
-				return snapshot.val()
+import axios from 'axios'
+
+export default () => {
+	const databaseUrl = 'https://avouer-c74ef.firebaseio.com/'
+	return {
+		getFeed () {
+			return axios({
+				method: 'GET',
+				url: databaseUrl + 'newpost.json',
+				responseType: 'stream'
+			}).then(resp => {
+				return resp.data
 			})
+		},
+		getPostByPostId (post_id) {
+			return axios({
+				method: 'GET',
+				url: databaseUrl + 'newpost/' + post_id + '.json',
+				responseType: 'stream'
+			}).then(resp => {
+				return resp.data
+			})
+		},
+		getCommentByPostId (post_id) {
+			return axios({
+				method: 'GET',
+				url: databaseUrl + 'newpost/' + post_id + '/comments.json',
+				responseType: 'stream'
+			}).then(resp => {
+				return resp.data
+			})
+		},
+		addNewComment (post_id, comment) {
+			return axios({
+				method: 'POST',
+				url: databaseUrl + 'newpost/' + post_id + '/comments.json',
+				data: comment
+			})
+		}
 	}
 }

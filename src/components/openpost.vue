@@ -1,6 +1,7 @@
 <template>
     <div>
       <md-card  style="margin-top:20px;">
+<<<<<<< HEAD
               <md-card-header>
                     <md-card-header-text>
                       <div class="md-title" v-if="post.title!=''">
@@ -39,6 +40,31 @@
           </div>
           <div style="margin-top:20px;">
               <md-card
+=======
+          <md-card-header>
+          <md-card-header-text>
+            <div class="md-title" v-if="post.title!=''">
+                  {{post.title}}
+            </div>
+            <span class="md-caption">{{ getDomain(post.link) }}</span>
+            <div class="md-subhead">{{post.onDate | formatDate}}</div>
+          </md-card-header-text>
+          </md-card-header>
+          <!-- <md-card-media>
+          <img src="https://i.imgur.com/iThrRGP.jpg" alt="people">
+          </md-card-media> -->
+          <md-card-content>
+              {{post.description}}
+          </md-card-content>
+          </md-card>
+          <div style="margin-top:20px;padding:20px;">
+              <md-input-container md-clearable>
+                  <label>Description goes here</label>
+                  <md-textarea v-model="comment" ></md-textarea>
+              </md-input-container>
+              <md-button @click="addNewComment">Comment</md-button>
+              <!--<md-card v-for="comments in post.comments"
+>>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
                        style="margin-top:20px;"
                        >
                 <md-card-content>
@@ -55,29 +81,44 @@
 </template>
 <script>
 import axios from 'axios'
+<<<<<<< HEAD
 import loda from 'lodash'
+=======
+import _fdb from './../db/firedb.js'
+
+const fdb = _fdb()
+
+>>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
 export default{
+  name: 'Post',
+  props: ['postId'],
   data(){
+<<<<<<< HEAD
     return{
       "comment":{"title":"hello","ondate":new Date()},
       post:{},
       id:this.$route.params.id,
       comments:[]
+=======
+    return {
+      post: {},
+      comment: ""
+>>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
     }
   },
-  methods:{
-    commentcall:function(){
-      axios({
-        method:'post',
-        url:'https://avouer-c74ef.firebaseio.com/newpost/'+this.id+'/comments.json',
-        data:this.comment
-       })
-        .then((response)=> {
-            console.log(response)
-       });
+  methods: {
+    addNewComment () {
+      const commentObj = {
+        ondate: new Date(),
+        title: comment
+      }
+      fdb.addNewComment(postId, commentObj).then(resp => {
+        console.log(resp)
+      })
     }
   },
   created(){
+<<<<<<< HEAD
     axios({
       method:'get',
       url:'https://avouer-c74ef.firebaseio.com/newpost/'+this.id+'.json',
@@ -93,6 +134,10 @@ export default{
           this.post=response.data;
           this.comments=_.reverse(commentsarray);
      });
+=======
+    console.log(postId)
+    this.post = fdb.getPostByPostId(this.postId)
+>>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
   }
 }
 </script>
