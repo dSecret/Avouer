@@ -33,7 +33,14 @@
                             Router Link
                         </router-link>
                       </div>
-                      <div v-if="!poststatus && this.$route.path!='/sigin'">
+                      <div v-if="postmssg" align="center">
+                          status:200<br>
+                          <md-button class="md-accent md-raised"
+                                      @click="addmore">
+                              Add more
+                          </md-button>
+                      </div>
+                      <div v-if="!postmssg && !poststatus && this.$route.path!='/sigin'">
                         <md-input-container md-clearable>
                             <label>Title goes here</label>
                             <md-input v-model="newpost.title"></md-input>
@@ -71,12 +78,17 @@ export default {
   data() {
     return {
       poststatus:false,
+      postmssg:false,
       newpost:{
         title:'',description:'',image:''
       }
     }
   },
   methods: {
+    addmore(){
+        this.poststatus=false;
+        this.postmssg=false;
+    },
     logOut() {
       firebase.auth().signOut();
     },
@@ -91,6 +103,7 @@ export default {
         }).then((response)=>{
               if(response.status==200){
                   this.poststatus=false;
+                  this.postmssg=true;
               }
         });
 
