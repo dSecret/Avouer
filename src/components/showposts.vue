@@ -1,18 +1,24 @@
 <template>
     <div style="margin-top:20px;width:100%;">
-
-      <md-card v-for="post in posts" style="margin-top:20px;">
+      <div>
+          <authsucc></authsucc>
+      </div>
+      <md-card v-for="post in posts"
+                style="margin-top:20px;"
+                >
           <md-card-header>
           <md-card-header-text>
-            <div class="md-title" v-if="post.title!=''">{{post.title}}</div>
+            <div class="md-title" v-if="post.title!=''">
+              <router-link :to="'/auth/success/'+post.id">
+                  {{post.title}}
+              </router-link>
+            </div>
             <div class="md-subhead">{{post.onDate | formatDate}}</div>
           </md-card-header-text>
           </md-card-header>
-
-          <md-card-media v-if="post.image!=''">
-          <img :src="'/src/assets/'+post.image" alt="people">
+          <md-card-media>
+          <img src="https://i.imgur.com/iThrRGP.jpg" alt="people">
           </md-card-media>
-
           <md-card-content>
               {{post.description}}
           </md-card-content>
@@ -21,7 +27,11 @@
 </template>
 <script>
 import axios from 'axios'
+import authsucc from './AuthSuccess.vue'
 export default{
+  components:{
+    'authsucc':authsucc
+  },
    data(){
      return{
           posts:[],

@@ -26,13 +26,6 @@
                   </md-card-actions>
 
                   <md-card-content>
-                      <div v-if="this.$route.path!='/auth/success'">
-                        <router-link  tag="md-button"
-                                      to="/signin" c
-                                      lass="md-raised md-primary">
-                            Router Link
-                        </router-link>
-                      </div>
                       <div v-if="postmssg" align="center">
                           status:200<br>
                           <md-button class="md-accent md-raised"
@@ -88,9 +81,6 @@ export default {
     addmore(){
         this.poststatus=false;
         this.postmssg=false;
-    },
-    logOut() {
-      firebase.auth().signOut();
     },
     post:function(){
         console.log('working');

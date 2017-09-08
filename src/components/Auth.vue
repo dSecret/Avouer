@@ -6,34 +6,21 @@
             <md-button class="md-icon-button" >
               <md-icon>search</md-icon>
             </md-button>
-            <md-button v-if="this.$route.path!='/auth/signin'"
-                      class="md-accent"
-                       @click="logOut">
-                LogOut
-            </md-button>
           </div>
         </md-toolbar>
         <div class="cont-wrap">
             <router-view></router-view>
-            <showposts ></showposts>
         </div>
 </div>
 </template>
 
 <script>
 import firebase from 'firebase';
-import firebaseui from 'firebaseui'
-import {config} from '../helpers/firebaseConfig';
-import showposts from './showposts.vue'
+
 export default {
   name: 'auth',
-  components:{
-    'showposts':showposts
-  },
   methods: {
-      logOut() {
-        firebase.auth().signOut();
-      },
+
   }
 }
 </script>
