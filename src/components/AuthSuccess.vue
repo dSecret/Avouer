@@ -88,13 +88,12 @@ export default {
             method: 'post',
             url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
             data:this.newpost
-        }).then(function(response){
-              console.log(response);
-              //if(response.status==200){
-                k=false
-              //}
+        }).then((response)=>{
+              if(response.status==200){
+                  this.poststatus=false;
+              }
         });
-        this.poststatus=k;
+
     }
   },
 };

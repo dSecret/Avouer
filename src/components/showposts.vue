@@ -27,22 +27,23 @@ export default{
      }
    },
    created(){
-     var postsarray=[];
+
      axios({
        method:'get',
        url:'https://avouer-c74ef.firebaseio.com/newpost.json',
        responseType:'stream'
       })
-       .then(function(response) {
+       .then((response)=> {
+          var postsarray=[];
           console.log(response);
            for(let key in response.data){
               response.data[key].id=key
               postsarray.push(response.data[key]);
            }
            console.log(postsarray);
-
+           this.posts=postsarray;
       });
-      this.posts=postsarray;
+
    },
    methods:{
 
