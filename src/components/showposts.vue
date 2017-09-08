@@ -1,7 +1,7 @@
 <template>
     <div style="margin-top:20px;width:100%;">
       <div>
-          <authsucc></authsucc>
+          <newpost></newpost>
       </div>
       <md-card v-for="post in posts"
                 style="margin-top:20px;"
@@ -38,10 +38,10 @@
 </template>
 <script>
 import axios from 'axios'
-import authsucc from './AuthSuccess.vue'
+import newpost from './newpost.vue'
 export default{
   components:{
-    'authsucc':authsucc
+    'newpost':newpost
   },
    data(){
      return{
@@ -68,6 +68,7 @@ export default{
 
    },
    methods:{
+
 
    }
 }

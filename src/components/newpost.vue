@@ -94,6 +94,7 @@ export default {
               if(response.status==200){
                   this.poststatus=false;
                   this.postmssg=true;
+                   this.$router.replace('/')
               }
         });
 
