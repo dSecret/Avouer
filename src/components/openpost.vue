@@ -6,12 +6,13 @@
             <div class="md-title" v-if="post.title!=''">
                   {{post.title}}
             </div>
+            <span class="md-caption">{{ getDomain(post.link) }}</span>
             <div class="md-subhead">{{post.onDate | formatDate}}</div>
           </md-card-header-text>
           </md-card-header>
-          <md-card-media>
+          <!-- <md-card-media>
           <img src="https://i.imgur.com/iThrRGP.jpg" alt="people">
-          </md-card-media>
+          </md-card-media> -->
           <md-card-content>
               {{post.description}}
           </md-card-content>
@@ -21,7 +22,7 @@
                   <label>Description goes here</label>
                   <md-textarea v-model="comment" ></md-textarea>
               </md-input-container>
-              <md-button @click="commentcall">Comment</md-button>
+              <md-button @click="addNewComment">Comment</md-button>
               <!--<md-card v-for="comments in post.comments"
                        style="margin-top:20px;"
                        >
@@ -34,35 +35,33 @@
 </template>
 <script>
 import axios from 'axios'
+import _fdb from './../db/firedb.js'
+
+const fdb = _fdb()
+
 export default{
+  name: 'Post',
+  props: ['postId'],
   data(){
-    return{
-      "comment":"hello",
-      post:{},
-      id:this.$route.params.id
+    return {
+      post: {},
+      comment: ""
     }
   },
-  methods:{
-    commentcall:function(){
-      axios({
-        method:'post',
-        url:'https://avouer-c74ef.firebaseio.com/newpost/'+this.id+'/comments.json',
-        data:this.comment
-       })
-        .then((response)=> {
-            console.log(response)
-       });
+  methods: {
+    addNewComment () {
+      const commentObj = {
+        ondate: new Date(),
+        title: comment
+      }
+      fdb.addNewComment(postId, commentObj).then(resp => {
+        console.log(resp)
+      })
     }
   },
   created(){
-    axios({
-      method:'get',
-      url:'https://avouer-c74ef.firebaseio.com/newpost/'+this.id+'.json',
-      responseType:'stream'
-     })
-      .then((response)=> {
-          this.post=response.data;
-     });
+    console.log(postId)
+    this.post = fdb.getPostByPostId(this.postId)
   }
 }
 </script>
