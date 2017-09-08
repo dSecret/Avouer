@@ -73,7 +73,7 @@ export default {
       poststatus:false,
       postmssg:false,
       newpost:{
-        title:'',description:'',image:'',onDate:'',comments:['myfirst commnet']
+        title:'',description:'',image:'',onDate:'',comments:[]
       }
     }
   },

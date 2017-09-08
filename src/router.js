@@ -10,7 +10,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component: Auth ,
       children:[
-        {path:'newsfeed',component:showposts},
+        {path:'',component:showposts},
         {path:'success/:id',component:openpost},
         {path:'signin',component:homepage}
       ]

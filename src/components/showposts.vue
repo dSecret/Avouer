@@ -9,7 +9,7 @@
               <md-card-header>
               <md-card-header-text>
                 <div class="md-title" v-if="post.title!=''">
-                  <router-link :to="'/auth/success/'+post.id">
+                  <router-link :to="'/success/'+post.id">
                       {{post.title}}
                   </router-link>
                 </div>
@@ -26,7 +26,7 @@
               </md-card-media>
               <div align="right">
                   <router-link tag="md-button"
-                                :to="'/auth/success/'+post.id"
+                                :to="'success/'+post.id"
                                 class=" md-primary "
                                 style="margin:0;"
                                 >

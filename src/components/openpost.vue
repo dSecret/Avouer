@@ -23,7 +23,7 @@
               <md-card-content style="padding:0 10px;;">
                 <md-input-container md-clearable>
                     <label>Description goes here</label>
-                    <md-textarea v-model="comment" ></md-textarea>
+                    <md-textarea v-model="comment.title" ></md-textarea>
                 </md-input-container>
                 <div align="right">
                   <md-button @click="commentcall"
@@ -38,19 +38,15 @@
 
           </div>
           <div style="margin-top:20px;">
-              <!--<md-card v-for="comments in post.comments"*/
-                       style="margin-top:20px;"
-                       >
-                <md-card-content>
-                    {{comments}}
-                </md-card-content>
-              </md-card>-->
               <md-card
                        style="margin-top:20px;"
                        >
                 <md-card-content>
-                  <div class="comment">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                  <div class="comment" v-for="commenti in comments">
+                    <div>
+                        <h3>{{commenti.ondate |formatDate}}</h3>
+                    </div>
+                          {{commenti.title}}
                   </div>
                 </md-card-content>
               </md-card>
@@ -59,12 +55,14 @@
 </template>
 <script>
 import axios from 'axios'
+import loda from 'lodash'
 export default{
   data(){
     return{
-      "comment":"hello",
+      "comment":{"title":"hello","ondate":new Date()},
       post:{},
-      id:this.$route.params.id
+      id:this.$route.params.id,
+      comments:[]
     }
   },
   methods:{
@@ -86,7 +84,14 @@ export default{
       responseType:'stream'
      })
       .then((response)=> {
+        var commentsarray=[];
+        console.log(response);
+         for(let key in response.data.comments){
+            response.data.comments[key].id=key
+            commentsarray.push(response.data.comments[key]);
+         }
           this.post=response.data;
+          this.comments=_.reverse(commentsarray);
      });
   }
 }
