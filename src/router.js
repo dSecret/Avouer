@@ -8,10 +8,9 @@ import showposts from './components/showposts.vue'
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/', component: Auth },
-    { path: '/auth', component: Auth ,
+    { path: '/', component: Auth ,
       children:[
-        {path:'success',component:showposts},
+        {path:'newsfeed',component:showposts},
         {path:'success/:id',component:openpost},
         {path:'signin',component:homepage}
       ]
