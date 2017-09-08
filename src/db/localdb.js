@@ -19,6 +19,6 @@ export default () => {
 			})
 	},
 	savePost (post) {
-		db.posts.
+		db.posts.add(post)
 	}
 }
