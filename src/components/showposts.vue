@@ -19,8 +19,18 @@
           <md-card-media>
           <img src="https://i.imgur.com/iThrRGP.jpg" alt="people">
           </md-card-media>
-          <md-card-content>
+          <md-card-content style="padding-bottom:0;">
               {{post.description}}
+              <md-divider></md-divider>
+              <div align="right">
+                  <router-link tag="md-button"
+                                :to="'/auth/success/'+post.id"
+                                class=" md-primary "
+                                style="margin:0;"
+                                >
+                                Comment
+                  </router-link>
+              </div>
           </md-card-content>
           </md-card>
     </div>
