@@ -80,9 +80,10 @@ export default {
     logOut() {
       firebase.auth().signOut();
     },
-    post(){
+    post:function(){
         console.log('working');
         this.poststatus=true;
+        var k=this.poststatus;
         axios({
             method: 'post',
             url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
@@ -90,9 +91,10 @@ export default {
         }).then(function(response){
               console.log(response);
               //if(response.status==200){
-                this.poststatus=false
+                k=false
               //}
         });
+        this.poststatus=k;
     }
   },
 };

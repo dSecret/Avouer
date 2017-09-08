@@ -15,7 +15,7 @@
         </md-toolbar>
         <div class="cont-wrap">
             <router-view></router-view>
-            <showposts></showposts>
+            <showposts ></showposts>
         </div>
 </div>
 </template>
@@ -41,14 +41,13 @@ export default {
 <style lang="css" scoped>
 .container{
   margin:0 !important;
-  padding:0 !important;
+  padding:0 0 40px 0!important;
   width:100%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
-  overflow-x: hidden;
 }
 .cont-wrap{
-  width:55%;
+  width:50%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   margin:0 auto;
