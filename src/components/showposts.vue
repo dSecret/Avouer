@@ -1,14 +1,15 @@
 <template>
     <div style="margin-top:20px;width:100%;">
+
       <md-card v-for="post in posts" style="margin-top:20px;">
           <md-card-header>
           <md-card-header-text>
-            <div class="md-title">{{post.title}}</div>
-            <div class="md-subhead">Subtitle here</div>
+            <div class="md-title" v-if="post.title!=''">{{post.title}}</div>
+            <div class="md-subhead">{{post.onDate | formatDate}}</div>
           </md-card-header-text>
           </md-card-header>
 
-          <md-card-media>
+          <md-card-media v-if="post.image!=''">
           <img :src="'/src/assets/'+post.image" alt="people">
           </md-card-media>
 
@@ -23,7 +24,7 @@ import axios from 'axios'
 export default{
    data(){
      return{
-          posts:[]
+          posts:[],
      }
    },
    created(){
@@ -41,7 +42,7 @@ export default{
               postsarray.push(response.data[key]);
            }
            console.log(postsarray);
-           this.posts=postsarray;
+           this.posts=_.reverse(postsarray);
       });
 
    },

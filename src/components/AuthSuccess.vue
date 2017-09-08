@@ -80,7 +80,7 @@ export default {
       poststatus:false,
       postmssg:false,
       newpost:{
-        title:'',description:'',image:''
+        title:'',description:'',image:'',onDate:''
       }
     }
   },
@@ -95,7 +95,7 @@ export default {
     post:function(){
         console.log('working');
         this.poststatus=true;
-        var k=this.poststatus;
+        this.newpost.onDate=new Date();
         axios({
             method: 'post',
             url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
