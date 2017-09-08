@@ -13,6 +13,7 @@
     "dexie": "^1.5.1",
     "firebase": "^4.3.0",
     "firebaseui": "^2.3.0",
+    "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "vue": "^2.3.3",
     "vue-material": "^0.7.4",

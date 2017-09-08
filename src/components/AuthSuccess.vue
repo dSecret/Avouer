@@ -26,14 +26,14 @@
                   </md-card-actions>
 
                   <md-card-content>
-                      <div v-if="this.$route.path!='/auth/success'">
-                        <router-link  tag="md-button"
-                                      to="/signin" c
-                                      lass="md-raised md-primary">
-                            Router Link
-                        </router-link>
+                      <div v-if="postmssg" align="center">
+                          status:200<br>
+                          <md-button class="md-accent md-raised"
+                                      @click="addmore">
+                              Add more
+                          </md-button>
                       </div>
-                      <div v-if="!poststatus && this.$route.path!='/sigin'">
+                      <div v-if="!postmssg && !poststatus && this.$route.path!='/sigin'">
                         <md-input-container md-clearable>
                             <label>Title goes here</label>
                             <md-input v-model="newpost.title"></md-input>
@@ -71,28 +71,32 @@ export default {
   data() {
     return {
       poststatus:false,
+      postmssg:false,
       newpost:{
-        title:'',description:'',image:''
+        title:'',description:'',image:'',onDate:'',comments:['myfirst commnet']
       }
     }
   },
   methods: {
-    logOut() {
-      firebase.auth().signOut();
+    addmore(){
+        this.poststatus=false;
+        this.postmssg=false;
     },
-    post(){
+    post:function(){
         console.log('working');
         this.poststatus=true;
+        this.newpost.onDate=new Date();
         axios({
             method: 'post',
             url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
             data:this.newpost
-        }).then(function(response){
-              console.log(response);
-              //if(response.status==200){
-                this.poststatus=false
-              //}
+        }).then((response)=>{
+              if(response.status==200){
+                  this.poststatus=false;
+                  this.postmssg=true;
+              }
         });
+
     }
   },
 };
