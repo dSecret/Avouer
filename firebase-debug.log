@@ -10,3 +10,111 @@
 [debug] [2017-09-09T21:17:22.829Z] > authorizing via signed-in user
 [debug] [2017-09-09T21:17:22.829Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avouerreview  
  Sun Sep 10 2017 02:47:22 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:17:25.663Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:17:25.663Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avouerreview/tokens  
+ Sun Sep 10 2017 02:47:25 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:17:27.252Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\firebase-auth'...
+[info] 
+[debug] [2017-09-09T21:17:27.271Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 02:47:27 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:17:29.316Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:17:29.316Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1090996857471/clients/_:getWebAppConfig  
+ Sun Sep 10 2017 02:47:29 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:17:31.081Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-09-09T21:47:52.785Z] ----------------------------------------------------------------------
+[debug] [2017-09-09T21:47:52.785Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\AJRathore\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-09-09T21:47:52.785Z] CLI Version:   3.10.0
+[debug] [2017-09-09T21:47:52.785Z] Platform:      win32
+[debug] [2017-09-09T21:47:52.785Z] Node Version:  v6.10.3
+[debug] [2017-09-09T21:47:52.785Z] Time:          Sun Sep 10 2017 03:17:52 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:47:52.785Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-09T21:47:52.816Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-09T21:47:52.816Z] > authorizing via signed-in user
+[debug] [2017-09-09T21:47:52.833Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:17:52 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:47:55.735Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:47:55.736Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avouerreview/tokens  
+ Sun Sep 10 2017 03:17:55 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:47:57.956Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\firebase-auth'...
+[info] 
+[debug] [2017-09-09T21:47:57.972Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:17:57 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:48:00.187Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:48:00.202Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1090996857471/clients/_:getWebAppConfig  
+ Sun Sep 10 2017 03:18:00 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:48:01.557Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-09-09T21:52:46.315Z] ----------------------------------------------------------------------
+[debug] [2017-09-09T21:52:46.315Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\AJRathore\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-09-09T21:52:46.315Z] CLI Version:   3.10.0
+[debug] [2017-09-09T21:52:46.315Z] Platform:      win32
+[debug] [2017-09-09T21:52:46.315Z] Node Version:  v6.10.3
+[debug] [2017-09-09T21:52:46.315Z] Time:          Sun Sep 10 2017 03:22:46 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:52:46.315Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-09T21:52:46.338Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-09T21:52:46.338Z] > authorizing via signed-in user
+[debug] [2017-09-09T21:52:46.353Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:22:46 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:52:48.268Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:52:48.268Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avouerreview/tokens  
+ Sun Sep 10 2017 03:22:48 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:52:50.220Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\firebase-auth'...
+[info] 
+[debug] [2017-09-09T21:52:50.220Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:22:50 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:52:52.404Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:52:52.419Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1090996857471/clients/_:getWebAppConfig  
+ Sun Sep 10 2017 03:22:52 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:52:53.690Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
+[debug] [2017-09-09T21:58:35.048Z] ----------------------------------------------------------------------
+[debug] [2017-09-09T21:58:35.048Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\AJRathore\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2017-09-09T21:58:35.048Z] CLI Version:   3.10.0
+[debug] [2017-09-09T21:58:35.048Z] Platform:      win32
+[debug] [2017-09-09T21:58:35.048Z] Node Version:  v6.10.3
+[debug] [2017-09-09T21:58:35.048Z] Time:          Sun Sep 10 2017 03:28:35 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:35.048Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2017-09-09T21:58:35.079Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2017-09-09T21:58:35.079Z] > authorizing via signed-in user
+[debug] [2017-09-09T21:58:35.079Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2017-09-09T21:58:35.079Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/dEuSyvzSScKHe3P3kywaDlLhzbts5fY4WgXa6bVWpUeyPREo5gWHVBKmUSiqCpHc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Sep 10 2017 03:28:35 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:35.895Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:58:35.964Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:28:35 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:38.565Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:58:38.581Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/avouerreview/tokens  
+ Sun Sep 10 2017 03:28:38 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:40.513Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'D:\firebase-auth'...
+[info] 
+[debug] [2017-09-09T21:58:40.530Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/avouerreview  
+ Sun Sep 10 2017 03:28:40 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:42.723Z] <<< HTTP RESPONSE 200
+[debug] [2017-09-09T21:58:42.723Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/1090996857471/clients/_:getWebAppConfig  
+ Sun Sep 10 2017 03:28:42 GMT+0530 (India Standard Time)
+[debug] [2017-09-09T21:58:44.009Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

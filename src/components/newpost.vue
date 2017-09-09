@@ -89,7 +89,7 @@ export default {
         this.newpost.onDate=new Date();
         axios({
             method: 'post',
-            url: 'https://avouerreview.firebaseio.com/reviewpost.json',
+            url: 'https://avouerreview.firebaseio.com/newpost.json',
             data:this.newpost
         }).then((response)=>{
               if(response.status==200){
