@@ -1,7 +1,7 @@
 <template>
+
     <div>
-      <md-card  style="margin-top:20px;">
-<<<<<<< HEAD
+          <md-card  style="margin-top:20px;">
               <md-card-header>
                     <md-card-header-text>
                       <div class="md-title" v-if="post.title!=''">
@@ -13,8 +13,8 @@
               <md-card-content>
                   {{post.description}}
               </md-card-content>
-              <md-card-media>
-                <img src="https://i.imgur.com/iThrRGP.jpg" class="img" alt="people">
+              <md-card-media v-if="!post.link==''">
+                <img :src="post.link" class="img" alt="people">
               </md-card-media>
           </md-card>
           <div>
@@ -23,11 +23,11 @@
                      >
               <md-card-content style="padding:0 10px;;">
                 <md-input-container md-clearable>
-                    <label>Description goes here</label>
-                    <md-textarea v-model="comment.title" ></md-textarea>
+                    <label>Comment goes here</label>
+                    <md-textarea v-model="newComment" ></md-textarea>
                 </md-input-container>
                 <div align="right">
-                  <md-button @click="commentcall"
+                  <md-button v-show="newComment != ''" @click="addNewComment"
                               style="margin:0;"
                               class="md-primary"
                               >
@@ -39,105 +39,97 @@
 
           </div>
           <div style="margin-top:20px;">
-              <md-card
-=======
-          <md-card-header>
-          <md-card-header-text>
-            <div class="md-title" v-if="post.title!=''">
-                  {{post.title}}
-            </div>
-            <span class="md-caption">{{ getDomain(post.link) }}</span>
-            <div class="md-subhead">{{post.onDate | formatDate}}</div>
-          </md-card-header-text>
-          </md-card-header>
-          <!-- <md-card-media>
-          <img src="https://i.imgur.com/iThrRGP.jpg" alt="people">
-          </md-card-media> -->
-          <md-card-content>
-              {{post.description}}
-          </md-card-content>
-          </md-card>
-          <div style="margin-top:20px;padding:20px;">
-              <md-input-container md-clearable>
-                  <label>Description goes here</label>
-                  <md-textarea v-model="comment" ></md-textarea>
-              </md-input-container>
-              <md-button @click="addNewComment">Comment</md-button>
-              <!--<md-card v-for="comments in post.comments"
->>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
-                       style="margin-top:20px;"
-                       >
-                <md-card-content>
-                  <div class="comment" v-for="commenti in comments">
-                    <div>
-                        <h3>{{commenti.ondate |formatDate}}</h3>
-                    </div>
-                          {{commenti.title}}
-                  </div>
-                </md-card-content>
+              <md-card style="margin-top:20px;">
+                      <div v-if="comments.length==0" align="center">
+                          No Comments Yet!
+                      </div>
+                      <md-list >
+                            <md-list-item v-for="comment in comments">
+                              <div>
+                                <div>
+                                    <span class="md-caption">
+                                        {{comment.ondate |formatDate}}
+                                    </span>
+                                </div>
+                                <div >
+                                  <span class="md-body-2">
+                                     {{comment.comment}}
+                                   </span>
+                                </div>
+                              </div>
+                            </md-list-item>
+                      </md-list>
+
               </md-card>
           </div>
     </div>
 </template>
 <script>
 import axios from 'axios'
-<<<<<<< HEAD
 import loda from 'lodash'
-=======
 import _fdb from './../db/firedb.js'
+import moment from 'moment'
 
 const fdb = _fdb()
 
->>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
 export default{
   name: 'Post',
-  props: ['postId'],
   data(){
-<<<<<<< HEAD
     return{
-      "comment":{"title":"hello","ondate":new Date()},
+      newComment: '',
       post:{},
-      id:this.$route.params.id,
+      id: this.$route.params.id,
       comments:[]
-=======
-    return {
-      post: {},
-      comment: ""
->>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
     }
   },
   methods: {
     addNewComment () {
-      const commentObj = {
-        ondate: new Date(),
-        title: comment
-      }
-      fdb.addNewComment(postId, commentObj).then(resp => {
-        console.log(resp)
+      fdb.addNewComment(this.id, this.newComment).then(resp => {
+        if (resp.status == 200) {
+          this.newComment = ''
+        }
       })
+      setTimeout(() => {fdb.getPostByPostId(this.id)
+        .then(data => {
+          var updated = []
+          const comms = data.comments
+          for (let key in comms) {
+            const comm = comms[key]
+            comm.id = key
+            updated.push(comm)
+          }
+          return updated
+        })
+        .then(newComms => {
+          this.comments = loda.reverse(
+            loda.sortBy(
+              loda.unionBy(this.comments, newComms, 'id'),
+              c => moment(String(c.ondate)).valueOf(),
+            )
+          )
+        })
+      },1 * 1000)
     }
   },
   created(){
-<<<<<<< HEAD
-    axios({
-      method:'get',
-      url:'https://avouer-c74ef.firebaseio.com/newpost/'+this.id+'.json',
-      responseType:'stream'
-     })
-      .then((response)=> {
-        var commentsarray=[];
-        console.log(response);
-         for(let key in response.data.comments){
-            response.data.comments[key].id=key
-            commentsarray.push(response.data.comments[key]);
-         }
-          this.post=response.data;
-          this.comments=_.reverse(commentsarray);
-     });
-=======
-    console.log(postId)
-    this.post = fdb.getPostByPostId(this.postId)
->>>>>>> 84082eeb19ed6dd1af8af7142fd0adf1e6cdae66
+    fdb.getPostByPostId(this.id)
+      .then(data => {
+        this.post = data
+        return data.comments
+      })
+      .then(comments => {
+        for (let key in comments) {
+          const comment = comments[key]
+          comments.id = key
+          this.comments.push(comment)
+        }
+        this.comments = loda.reverse(
+          loda.sortBy(
+            this.comments,
+            c => moment(String(c.ondate)).valueOf(),
+          )
+        )
+      })
   }
 }
 </script>

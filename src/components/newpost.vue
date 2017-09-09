@@ -35,20 +35,22 @@
                       </div>
                       <div v-if="!postmssg && !poststatus && this.$route.path!='/sigin'">
                         <md-input-container md-clearable>
-                            <label>Title goes here</label>
+                            <label>Title (Required)</label>
                             <md-input v-model="newpost.title"></md-input>
                         </md-input-container>
                         <md-input-container md-clearable>
-                            <label>Description goes here</label>
+                            <label>Description (optional)</label>
                             <md-textarea v-model="newpost.description" ></md-textarea>
                         </md-input-container>
                         <md-input-container>
-                          <label>Image</label>
-                          <md-file  accept="image/*" v-model="newpost.image"></md-file>
+                          <label>Image-Link</label>
+                          <md-input v-model="newpost.link" ></md-input>
                         </md-input-container>
                         <md-card-actions>
                           <span style="flex: 1"></span>
-                          <md-button class="md-primary md-raised" @click="post">
+                          <md-button class="md-primary md-raised"
+                                      @click="post"
+                                      v-show="newpost.title!=''">
                             Post
                           </md-button>
                         </md-card-actions>
@@ -65,15 +67,14 @@
 
 <script>
 import axios from 'axios'
-import firebase from 'firebase'
 
 export default {
   data() {
     return {
-      poststatus:false,
-      postmssg:false,
-      newpost:{
-        title:'',description:'',image:'',onDate:'',comments:[]
+      poststatus: false,
+      postmssg: false,
+      newpost: {
+        title:'',description:'',link:'',ondate:'',comments:[]
       }
     }
   },
@@ -88,7 +89,7 @@ export default {
         this.newpost.onDate=new Date();
         axios({
             method: 'post',
-            url: 'https://avouer-c74ef.firebaseio.com/newpost.json',
+            url: 'https://avouerreview.firebaseio.com/reviewpost.json',
             data:this.newpost
         }).then((response)=>{
               if(response.status==200){

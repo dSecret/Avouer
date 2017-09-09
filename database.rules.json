@@ -1,0 +1,12 @@
+{
+  "rules": {
+    "newpost": {
+      ".read": true,
+      ".write": true
+    },
+    "reviewpost": {
+      ".read": false,
+      ".write": true
+    }
+  }
+}
