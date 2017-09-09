@@ -38,7 +38,7 @@ export default {
   margin-top:20px;
 }
 @media only screen and (max-width:5.5in){
-  .newpost-cont-wrap{
+  .cont-wrap{
     width:98%;
 
   }
