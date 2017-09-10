@@ -27,7 +27,9 @@
 
                   <md-card-content>
                       <div v-if="postmssg" align="center">
-                          status:200<br>
+                           Post Added!!<br>
+                           <a href="/">Refresh</a>
+                           to update the newsfeed.<br>
                           <md-button class="md-accent md-raised"
                                       @click="addmore">
                               Add more
@@ -86,7 +88,7 @@ export default {
     post:function(){
         console.log('working');
         this.poststatus=true;
-        this.newpost.onDate=new Date();
+        this.newpost.ondate=new Date();
         axios({
             method: 'post',
             url: 'https://avouerreview.firebaseio.com/newpost.json',
